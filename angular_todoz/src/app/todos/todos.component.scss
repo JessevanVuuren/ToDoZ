@@ -1,0 +1,123 @@
+.main_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100vh;
+}
+
+.logo_container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  // margin-top: 40%;
+
+  .logo_png {
+    height: 70px;
+  }
+}
+
+.todoz_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .input_holder {
+    width: 90%;
+  }
+
+  .input {
+    background-color: var(--background_color);
+    border: 0px;
+    caret-color: var(--yellow);
+    color: white;
+    width: 100%;
+    font-size: 50px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .input:focus {
+    outline: none;
+  }
+  .line {
+    height: 1px;
+    width: 100%;
+    margin-left: 1px;
+  }
+}
+
+.todo_input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    user-select: none;
+    margin-right: 10px;
+    font-size: 40px;
+    color: var(--gray);
+
+    &:hover {
+      color: var(--purple);
+      cursor: pointer;
+    }
+  }
+}
+
+.input_description {
+  margin-top: 10px;
+
+  .description {
+    overflow: hidden;
+    font-size: 30px;
+  }
+}
+
+.priority {
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .priority_btn {
+    color:white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+    width: 30%;
+    height: 60px;
+
+    border-bottom: 1px solid var(--gray);
+    
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--dark_gray); 
+
+    }
+  }
+
+}
+
+
+.single_todo {
+  width: 100%
+}
+
+.todos_list {
+  scroll-behavior: smooth;
+  height: 100vh;
+  overflow-y: scroll;
+  display: flex;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.todos_list::-webkit-scrollbar {
+  display: none;
+}

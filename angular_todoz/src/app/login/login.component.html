@@ -1,0 +1,80 @@
+<div class="main_container">
+  <div class="main_box">
+
+    <div *ngIf="state == 'validate'" class="spinner">
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <div *ngIf="!register_mode">
+      <img class="logo" [@fade_logo]="state" src="assets/logo.png">
+
+      <div class="input_container">
+
+        <div [@fade_user]="state">
+          <input class="input username" type="text" autocomplete="new-password" [formControl]="username"
+            placeholder="username...">
+          <div class="line user_line"></div>
+        </div>
+
+
+        <div [@fade_pass]="state">
+          <input class="input password" type="password" [formControl]="password" placeholder="password...">
+          <div class="line pass_line"></div>
+        </div>
+
+        <p style="color:wheat;white-space: pre-line">{{ errors }}</p>
+
+
+      </div>
+
+      <div class="button_container" [@fade_buttons]="state" (@fade_buttons.done)="reRoute()">
+        <a class="button register" (click)="witch_mode()">Register</a>
+        <a class="button login" (click)="login()">Login</a>
+      </div>
+    </div>
+
+
+    <div *ngIf="register_mode">
+      <img class="logo" [@fade_logo]="state" src="assets/logo.png">
+
+      <div class="input_container">
+
+        <div [@fade_user]="state">
+          <input class="input username" type="text" autocomplete="new-password" [formControl]="name" placeholder="name">
+          <div class="line user_line"></div>
+        </div>
+
+        <div [@fade_user]="state">
+          <input class="input username" type="text" autocomplete="new-password" [formControl]="email"
+            placeholder="email">
+          <div class="line user_line"></div>
+        </div>
+
+        <div [@fade_user]="state">
+          <input class="input password" type="password" autocomplete="new-password" [formControl]="password1"
+            placeholder="password">
+          <div class="line user_line"></div>
+        </div>
+
+        <div [@fade_pass]="state">
+          <input class="input password" type="password" [formControl]="password2" placeholder="re password">
+          <div class="line pass_line"></div>
+        </div>
+
+        <p style="color:wheat;white-space: pre-line">{{ errors }}</p>
+
+      </div>
+
+      <div class="button_container" [@fade_buttons]="state" (@fade_buttons.done)="reRoute()">
+        <a class="button register" (click)="witch_mode()">Login</a>
+        <a class="button login" (click)="register()">Create</a>
+      </div>
+    </div>
+
+  </div>
+</div>

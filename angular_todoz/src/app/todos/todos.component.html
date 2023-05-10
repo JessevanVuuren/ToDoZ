@@ -1,0 +1,46 @@
+<div class="main_container">
+
+
+  <div class="logo_container" [@fade_logo]="state">
+    <div>
+      <img class="logo_png" src="../../assets/logo.png">
+    </div>
+  </div>
+
+  <div class="todoz_container" [@fade_input]="state">
+    <div class="input_holder">
+      <div class="todo_input">
+        <input class="input" type="text" unselectable [formControl]="todo" placeholder="To Do">
+        <a (select)="false" (click)="addToDo()">↛</a>
+
+      </div>
+      <div class="line" [ngStyle]="{'background-color': redLine ? 'var(--bad)' : 'var(--yellow)'}"></div>
+
+      <div class="input_description">
+        <textarea class="input description" [formControl]="description" placeholder="Description" maxlength="255"></textarea>
+        <div class="line" [ngStyle]="{'background-color': redLine ? 'var(--bad)' : 'var(--yellow)'}"></div>
+      </div>
+
+
+      <div class="priority">
+
+        <div (click)="set_new_prio('low')" [ngStyle]="{'border-color' : currPrio === 'low' ? 'var(--good)' : 'var(--gray)'}" class="priority_btn priority_low">low</div>
+        <div (click)="set_new_prio('medium')" [ngStyle]="{'border-color' : currPrio === 'medium' ? 'var(--medium)' : 'var(--gray)'}" class="priority_btn priority_medium">medium</div>
+        <div (click)="set_new_prio('high')" [ngStyle]="{'border-color' : currPrio === 'high' ? 'var(--bad)' : 'var(--gray)'}" class="priority_btn priority_high">high</div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="single_todo">
+    <div class="todos_list">
+      <div style="width: 100%;margin-top: 46vh;"></div>
+
+      <div *ngFor="let todo of todos.reverse() let i = index" style="width: 100%;">
+        <app-todo [todo]="todo" [index]="i"></app-todo>
+      </div>
+
+    </div>
+  </div>
+
+</div>

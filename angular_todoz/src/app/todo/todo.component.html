@@ -1,0 +1,18 @@
+<div class="todo_container" [ngStyle]="{'animation-delay': index * 100 + 'ms'}">
+
+  <div class="hover_fix">
+
+    <div class="todo_holder" [ngStyle]="{'border-color': priorityColor}">
+      <div class="control">
+        <h1 [ngStyle]="{'text-decoration': todo.attributes.done ? 'line-through' : 'none'}">{{ todo.attributes.name }}</h1>
+        <span class="finished">
+          <a (click)="done()" class="check">✔</a>
+          <a (click)="delete()" class="delete">✘</a>
+        </span>
+      </div>
+      <p [ngStyle]="{'text-decoration': todo.attributes.done ? 'line-through' : 'none'}" >{{ todo.attributes.description }}</p>
+    </div>
+  </div>
+
+
+</div>

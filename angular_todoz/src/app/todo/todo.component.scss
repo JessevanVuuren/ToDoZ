@@ -1,0 +1,73 @@
+.todo_container {
+  // animation: 2s optIn 4s cubic-bezier(.22,1.58,.77,1) forwards;
+  animation-name: optIn;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(.22,1.58,.77,1);
+  animation-fill-mode: forwards;
+  opacity: 0;
+  border-radius: 8px 0px 0px 8px;
+  margin-bottom: 20px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--dark_gray);
+  }
+}
+
+
+@keyframes optIn {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }100% {
+    opacity: 1;
+  }
+}
+
+.todo_holder {
+  border-left: 2px;
+  border-style: solid;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+  padding-left: 10px;
+
+  h1 {
+    color: white;
+    margin: 0px;
+  }
+  p {
+    margin: 0px;
+    color: var(--gray);
+  }
+}
+
+.control {
+  display: flex;
+  align-items: center;
+}
+
+.finished {
+  margin-left: 10px;
+  .check {
+    font-size: 24px;
+    color: var(--gray);
+
+    &:hover {
+      color: var(--good);
+    }
+  }
+  .delete {
+    font-size: 24px;
+    margin-left: 10px;
+    color: var(--gray);
+    
+    &:hover {
+      color: var(--bad);
+    }
+  }
+}
